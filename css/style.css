@@ -1,0 +1,314 @@
+:root {
+  --ink: #1c2430;
+  --muted: #5c6775;
+  --paper: #f4efe6;
+  --card: #fffdf8;
+  --line: #d9cfc0;
+  --accent: #1f6f6a;
+  --accent-soft: #dcecea;
+  --today: #c45c26;
+  --holiday: #b42318;
+  --work: #6b7280;
+  --shadow: 0 10px 30px rgba(28, 36, 48, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 12% 8%, #efe6d6 0, transparent 36%),
+    var(--paper);
+  color: var(--ink);
+  font: 15px/1.5 "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 24px 40px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-end;
+  margin-bottom: 22px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+}
+
+.brand p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.weather {
+  min-width: 220px;
+  padding: 12px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.35fr 0.9fr;
+  gap: 20px;
+}
+
+.calendar-panel,
+.memo-panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.cal-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.cal-heading {
+  text-align: center;
+}
+
+.cal-heading h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.cal-heading p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.nav-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.weekday-row,
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.weekday-row span {
+  text-align: center;
+  padding: 6px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.day {
+  min-height: 86px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 6px 7px;
+  text-align: left;
+  background: transparent;
+  cursor: pointer;
+}
+
+.day:hover {
+  background: var(--accent-soft);
+}
+
+.day.other {
+  opacity: 0.38;
+}
+
+.day.today {
+  border-color: var(--today);
+  background: #f8ece4;
+}
+
+.day.selected {
+  outline: 2px solid var(--accent);
+}
+
+.day .num {
+  font-weight: 650;
+}
+
+.day .sub {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.day .fest {
+  display: block;
+  font-size: 11px;
+  color: var(--holiday);
+}
+
+.day .work {
+  color: var(--work);
+}
+
+.selected-line {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.memo-head {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.memo-head h2 {
+  margin: 0;
+  flex: 1;
+  font-size: 20px;
+}
+
+.memo-head input,
+.memo-form input,
+.memo-form select,
+.memo-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font: inherit;
+  background: #fff;
+}
+
+.memo-head input {
+  max-width: 180px;
+}
+
+.memo-form {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.file-label {
+  border: 1px dashed var(--accent);
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.remind-label {
+  color: var(--muted);
+  font-size: 13px;
+  display: grid;
+  gap: 4px;
+}
+
+.primary {
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  padding: 9px 12px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.memo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 430px;
+  overflow: auto;
+}
+
+.memo-item {
+  border-top: 1px solid var(--line);
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.memo-item h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.memo-item p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.memo-item button {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 36, 48, 0.4);
+  display: grid;
+  place-items: center;
+  z-index: 20;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-card {
+  width: min(520px, 92vw);
+  background: var(--card);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.modal-card img,
+.modal-card video {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.modal-card audio {
+  width: 100%;
+}
+
+.remind-card {
+  border-top: 6px solid var(--today);
+}
+
+@media (max-width: 900px) {
+  .layout,
+  .topbar {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+}
